@@ -2,7 +2,6 @@ import './signin.css'
 import logo from '../../img/header/Logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 
@@ -19,8 +18,6 @@ const SignUp = () => {
     const handleInputPass: React.ChangeEventHandler<HTMLInputElement> = (e: any) => {
         setValuePass(e.target.value)
     }
-
-    const dispatch = useDispatch();
 
     const handleRegister = (email: string, password: string) => {
         const auth = getAuth();
