@@ -2,7 +2,6 @@ import './signin.css'
 import logo from '../../img/header/Logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react';
-// import { setUser } from '../../store/slices/userSlice';
 import { useDispatch } from 'react-redux';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
