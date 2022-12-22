@@ -1,0 +1,36 @@
+.page__kids {
+    padding: 75px 0px;
+    border-bottom: 8px solid #222;
+}
+
+.kids-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 50px;
+}
+
+.kids-content__image img {
+    width: 100%;
+}
+
+@media (min-width: 991.98px) {
+    .kids-content__image {
+        width: 48%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .kids-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .kids-content__text {
+        order: 1;
+    }
+
+    .kids-content__image {
+        order: 2
+    }
+}

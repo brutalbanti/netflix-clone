@@ -1,0 +1,46 @@
+.video-content {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.youtube iframe {
+    height: 390px;
+    width: 640px;
+}
+
+.error-iframe {
+    color: white;
+    font-size: 50px;
+    line-height: normal;
+    font-weight: 700;
+    text-align: center;
+}
+
+@media (max-width: 668.98px) {
+    .youtube iframe {
+        height: 290px;
+        width: 540px;
+    }
+}
+
+@media (max-width: 554.98px) {
+    .youtube iframe {
+        height: 190px;
+        width: 440px;
+    }
+}
+
+@media (max-width: 465.98px) {
+    .youtube iframe {
+        height: 170px;
+        width: 320px;
+    }
+}

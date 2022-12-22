@@ -1,0 +1,51 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background-color: #000000;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+[class*="__container"] {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1920.98px) {
+  [class*="__container"] {
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 1100.98px) {
+  [class*="__container"] {
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 990.98px) {
+  [class*="__container"] {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  [class*="__container"] {
+    max-width: none;
+    margin: 0px 15px;
+  }
+}

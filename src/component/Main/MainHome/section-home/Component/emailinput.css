@@ -1,0 +1,110 @@
+form {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+}
+
+.form-content__title {
+    position: relative;
+    z-index: 3;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.005em;
+    color: white;
+}
+
+.form-content__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.form-item {
+    position: relative;
+}
+
+.label-email {
+    position: absolute;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #8C8C8C;
+    left: 10px;
+    top: 25px;
+    transition: all 0.2s;
+}
+
+.form-content__input.head {
+    background: #FFFFFF;
+    border: 1px solid #8C8C8C;
+    border-radius: 2px 0px 0px 2px;
+    height: 70px !important;
+    min-width: 500px;
+    padding: 10px 10px 0;
+    color: #000;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-content__input.head:focus+.label-email {
+    top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-content__btn {
+    position: relative;
+    z-index: 3;
+    background-color: #e50914;
+    background-image: linear-gradient(180deg, #e50914, #db0510);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
+    color: #fff;
+    font-size: 1.875rem;
+    max-height: 70px;
+    min-width: 74px;
+    padding: 0 1em;
+}
+
+.error-email {
+    color: #ffa00a;
+    font-size: 15px;
+    margin-bottom: -6px;
+    padding: 6px 3px;
+    text-align: left;
+}
+
+@media (max-width: 731.98px) {
+    .form-content__title {
+        font-size: 18px;
+    }
+
+    .form-content__btn {
+        padding: 0 1em;
+        font-size: 1rem;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+    }
+}
+
+@media (max-width: 548.98px) {
+    .form-content__input.head {
+        min-width: 100%;
+        height: 48px !important;
+    }
+
+    .label-email {
+        top: 15px;
+    }
+
+    .form-content__input.head:focus+.label-email {
+        font-size: 12px;
+        font-weight: 600;
+    }
+}

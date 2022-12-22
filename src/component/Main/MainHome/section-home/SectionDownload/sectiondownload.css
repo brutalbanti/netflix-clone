@@ -1,0 +1,112 @@
+.page__download {
+    padding: 70px 0px;
+    border-bottom: 8px solid #222;
+}
+
+.download-content {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    justify-content: space-between;
+}
+
+.download-content__video {
+    position: relative;
+    display: flex;
+    width: 50%;
+}
+
+.image-mobile {
+    max-width: 100%;
+    height: auto;
+}
+
+.body-video-content__img img {
+    height: 5em;
+}
+
+.body-video-content__img {
+    margin: 0 1em 0 0;
+}
+
+.video-content__body {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background: #000;
+    border: 2px solid hsla(0, 0%, 100%, .25);
+    border-radius: 0.75em;
+    bottom: 8%;
+    box-shadow: 0 0 2em 0 #000;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    padding: 0.5em 0.75em;
+    min-width: 17em;
+}
+
+.body-video-content__text {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.text-content-video__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.text-content-video__sub-title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    color: #0071EB;
+}
+
+.body-video-content__gif {
+    background: url('https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif') 50% no-repeat;
+    background-size: 100%;
+    content: "";
+    width: 4em;
+    height: 4em;
+}
+
+@media (min-width: 991.98px) {
+    .download-content__video {
+    }
+}
+
+@media (max-width: 991.98px) {
+    .download-content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .body-video-content__img img {
+        height: 3em;
+    }
+
+    .text-content-video__title {
+        font-size: .9em !important;
+    }
+
+    .text-content-video__sub-title {
+        font-size: .75em;
+    }
+
+    .download-content__text {
+        order: 1;
+    }
+
+    .download-content__video {
+        order: 2;
+        margin: 0;
+        width: auto;
+    }
+
+    .video-content__body {
+        left: 50%;
+    }
+}
