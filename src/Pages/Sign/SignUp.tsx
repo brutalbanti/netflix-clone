@@ -9,7 +9,8 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 const SignUp = () => {
     const [valueEmail, setValueEmail] = useState('');
     const [valuePass, setValuePass] = useState('');
-    const push  = useNavigate();
+    const [error, serError] = useState('');
+    const push = useNavigate();
 
     const handleInputEmail: React.ChangeEventHandler<HTMLInputElement> = (e: any) => {
         setValueEmail(e.target.value)
@@ -22,10 +23,15 @@ const SignUp = () => {
     const handleRegister = (email: string, password: string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
-            .then(({user}) => {
+            .then(({ user }) => {
                 push('/films');
             })
-            .catch(console.error)
+            .catch((err) => {
+                if (err.message === 'Firebase: Error (auth/invalid-email).') {
+                    serError('Invalid email');
+                    console.log(error)
+                }
+            })
     }
 
     return (
@@ -47,6 +53,9 @@ const SignUp = () => {
                                 <label htmlFor="email" className='form-content__label'>Email</label>
                             }
                         </div>
+                        {error !== '' &&
+                        <div className='error-pass'>{error}</div>
+                        }
                         <div className="input-item">
                             <input type="password" className='form-content__input sign' id="pass" onChange={handleInputPass} required />
                             {valuePass !== ''

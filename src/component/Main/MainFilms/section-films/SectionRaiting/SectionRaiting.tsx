@@ -1,11 +1,10 @@
-import { Scrollbar, A11y } from 'swiper';
-
+import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React, { useEffect, useState } from 'react';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/scrollbar';
+import 'swiper/css/navigation';
 import axios from 'axios';
 import '../SectionDocumentar/sectiondocumentar.css';
 import DetailsFilm from '../Component/DetailsFilm';
@@ -50,8 +49,10 @@ const SectionRaiting = () => {
                 <p className='title-genres'>Top Rated</p>
                 <div className="documentaries-slider">
                     <Swiper
+                        modules={[Navigation]}
                         slidesPerView={5}
-                        spaceBetween={30}
+                        spaceBetween={0}
+                        navigation
                         freeMode={true}
                         pagination={{ clickable: true }}
                         mousewheel={{

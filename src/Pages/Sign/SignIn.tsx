@@ -9,21 +9,23 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const SignIn = () => {
     const [valueEmail, setValueEmail] = useState('');
     const [valuePass, setValuePass] = useState('');
-    // const dispatch = useAppDispatch();
+    const [error, serError] = useState('');
     const push = useNavigate();
 
     const handleLogin = (email: string, password: string) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(({ user }: any) => {
-                // dispatch(setUser({
-                //     email: user.email,
-                //     id: user.uid,
-                //     token: user.refreshToken
-                // }));
                 push('/films')
             })
-            .catch(console.error)
+            .catch((err) => {
+                if (err.message === 'Firebase: Error (auth/invalid-email).') {
+                    serError('Invalid email');
+                } else if(err.message === `Firebase: Error (auth/wrong-password).` || `Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).`) {
+                    serError('Invalid password');
+                }
+                console.log(err.message)
+            })
     }
 
     const handleInputEmail: React.ChangeEventHandler<HTMLInputElement> = (e: any) => {
@@ -53,6 +55,9 @@ const SignIn = () => {
                                 <label htmlFor="email" className='form-content__label'>Email</label>
                             }
                         </div>
+                        {error !== '' && error === 'Invalid email' && 
+                        <div className='error-pass'>{error}</div>
+                        }
                         <div className="input-item">
                             <input type="password" className='form-content__input sign' id="pass" onChange={handleInputPass} required />
                             {valuePass !== ''
@@ -62,10 +67,13 @@ const SignIn = () => {
                                 <label htmlFor="pass" className='form-content__label'>Password</label>
                             }
                         </div>
+                        {error !== '' && error === 'Invalid password' && 
+                        <div className='error-pass'>{error}</div>
+                        }
                         <button className='form-content__button' onClick={() => handleLogin(valueEmail, valuePass)}>Sign In</button>
                         <div className="form-content__down">
                             <label htmlFor="check" className='label-checkbox'>
-                                <input type="checkbox" id='check' className='checkbox' />
+                                <input type="checkbox" id='check' className='checkbox' checked />
                                 Remember me
                             </label>
                             <a href="" className='form-content__help'>Need help?</a>

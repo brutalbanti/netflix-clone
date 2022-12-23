@@ -58,7 +58,6 @@ footer {
 }
 
 @media (max-width: 480.98px) {
-    .footer__center {
-        justify-content: left;
-    }
+    /* .footer__center { */
+    /* } */
 }
